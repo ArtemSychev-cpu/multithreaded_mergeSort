@@ -1,5 +1,4 @@
 ﻿﻿#include <iostream>
-#include <chrono>
 #include <future>
 
 #define SIZE 2000000
