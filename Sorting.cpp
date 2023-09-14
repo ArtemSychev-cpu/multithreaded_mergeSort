@@ -1,4 +1,4 @@
-﻿﻿#include <iostream>
+#include <iostream>
 #include <future>
 
 #define SIZE 2000000
@@ -9,11 +9,11 @@ void merge(int* arr, int l, int m, int r)
 {
     int nl = m - l + 1;
     int nr = r - m;
-      
+
     int* left = new int[nl];
     int* right = new int[nr];
 
-   
+
     for (int i = 0; i < nl; i++)
         left[i] = arr[l + i];
 
@@ -21,10 +21,10 @@ void merge(int* arr, int l, int m, int r)
         right[j] = arr[m + 1 + j];
 
     int i = 0, j = 0;
-    int k = l;  
+    int k = l;
 
     while (i < nl && j < nr) {
-        
+
         if (left[i] <= right[j]) {
             arr[k] = left[i];
             i++;
@@ -35,13 +35,13 @@ void merge(int* arr, int l, int m, int r)
         }
         k++;
     }
-   
+
     while (i < nl) {
         arr[k] = left[i];
         i++;
         k++;
     }
-   
+
     while (j < nr) {
         arr[k] = right[j];
         j++;
@@ -84,18 +84,22 @@ void mergeSort(int* arr, int l, int r)
 
 int main()
 {
-    int* rand_arr = new int[SIZE];
-    std::srand(time(nullptr));
-
+    using::std::endl;
+    using::std::cout;
+    
+    int* arr = new int[SIZE];
+   
     for (long i = 0; i < SIZE; i++)
     {
-        rand_arr[i] = rand() % 500;
+        arr[i] = rand() % 500;
     }
-    
+
     make_threads = true;
-    std::cout << "multiply threads sorting for array dimension N = " << SIZE << " elements" << std::endl;
-    mergeSort(rand_arr, 0, SIZE - 1); 
-    
+    cout << "multiply threads sorting for array dimension arr = " << SIZE << " elements" << endl;
+    mergeSort(arr, 0, SIZE - 1);
+
+    return 0;
+}
   
 
 
